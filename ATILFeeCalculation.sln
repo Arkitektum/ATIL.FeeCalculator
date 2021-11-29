@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATILFeeCalculation", "ATILFeeCalculation.csproj", "{AF0561E3-EEDE-4F28-90D3-1BD172D1F8D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF0561E3-EEDE-4F28-90D3-1BD172D1F8D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF0561E3-EEDE-4F28-90D3-1BD172D1F8D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF0561E3-EEDE-4F28-90D3-1BD172D1F8D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF0561E3-EEDE-4F28-90D3-1BD172D1F8D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EA345AA-B60A-4C51-B107-EAA3FA17DA0A}
+	EndGlobalSection
+EndGlobal
