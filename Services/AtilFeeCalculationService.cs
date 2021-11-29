@@ -93,6 +93,11 @@ namespace ATIL.FeeCalculator.Services
         {
             if (Int32.TryParse(areal, out int arealTall))
             {
+                if (arealTall <= 0)
+                {
+                    throw new ArgumentException($"Areal må være et heltall større enn 0. '{areal}' er ikke gyldig.");
+                }
+
                 var foundCategory = _categories.FirstOrDefault(x => x.Tiltakstype.Contains(tiltakstype) && x.Bygningstype.Contains(bygningstype));
                 if (foundCategory != null)
                 {
@@ -103,7 +108,7 @@ namespace ATIL.FeeCalculator.Services
             }
             else
             {
-                throw new ArgumentException($"Areal må være et tall. '{areal}' er ikke gyldig.");
+                throw new ArgumentException($"Areal må være et heltall. '{areal}' er ikke gyldig.");
             }
         }
     }

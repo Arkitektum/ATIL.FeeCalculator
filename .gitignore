@@ -58,3 +58,9 @@ appsettings.json
 .vs/
 bin/
 obj/
+
+*.user
+
+Properties/PublishProfiles/
+
+Properties/ServiceDependencies/arbeidstilsynet-fee-calculator-api - Web Deploy/
