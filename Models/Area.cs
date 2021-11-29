@@ -1,4 +1,4 @@
-﻿namespace ATILFeeCalculation.Models
+﻿namespace ATIL.FeeCalculator.Models
 {
     public class Area
     {

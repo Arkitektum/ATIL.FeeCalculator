@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using ATILFeeCalculation.Models;
-using ATILFeeCalculation.Services;
+using ATIL.FeeCalculator.Models;
+using ATIL.FeeCalculator.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace ATILFeeCalculation.Controllers
+namespace ATIL.FeeCalculator.Controllers
 {
     [ApiController]
     public class AtilFeeCalculationController : BaseController
@@ -14,7 +14,7 @@ namespace ATILFeeCalculation.Controllers
         public AtilFeeCalculationController(ILogger<AtilFeeCalculationController> logger) : base(logger)
         { }
 
-        [Route("api/atil-fee")]
+        [Route("api/atil-gebyr")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

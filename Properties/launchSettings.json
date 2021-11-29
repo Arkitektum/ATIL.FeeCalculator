@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ATILFeeCalculation": {
+    "ATIL.FeeCalculator": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

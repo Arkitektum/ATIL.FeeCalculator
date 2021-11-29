@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ATILFeeCalculation.Models;
+using ATIL.FeeCalculator.Models;
 
-namespace ATILFeeCalculation.Services
+namespace ATIL.FeeCalculator.Services
 {
     public class AtilFeeCalculationService
     {

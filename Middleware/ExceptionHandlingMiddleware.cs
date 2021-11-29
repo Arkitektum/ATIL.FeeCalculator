@@ -4,7 +4,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace ATILFeeCalculation.Middleware
+namespace ATIL.FeeCalculator.Middleware
 {
     public class ExceptionHandlingMiddleware
     {
