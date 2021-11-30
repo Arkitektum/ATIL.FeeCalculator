@@ -4,9 +4,9 @@ namespace ATIL.FeeCalculator.Models
 {
     public class Fee
     {
-        [JsonPropertyName("Gebyrbeloep")]
+        [JsonPropertyName("gebyrbeloep")]
         public int FeeAmount { get; set; }
-        [JsonPropertyName("Gebyrkategori")]
+        [JsonPropertyName("gebyrkategori")]
         public string FeeCategory { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using ATIL.FeeCalculator.Middleware;
+using ATIL.FeeCalculator.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,7 @@ namespace ATIL.FeeCalculator
         {
 
             services.AddControllers();
+            services.AddScoped<AtilFeeCalculationService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ATIL.FeeCalculator", Version = "v1" });
