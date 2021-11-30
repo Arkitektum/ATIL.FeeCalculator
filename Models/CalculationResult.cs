@@ -11,9 +11,9 @@ namespace ATIL.FeeCalculator.Models
         [JsonPropertyName("beskrivelse")]
         public string Description { get; set; }
         [JsonPropertyName("tiltakstype")]
-        public string Tiltakstype { get; set; }
+        public Tiltakstype Tiltakstype { get; set; }
         [JsonPropertyName("bygningstype")]
-        public string Bygningstype { get; set; }
+        public Bygningstype Bygningstype { get; set; }
         [JsonPropertyName("areal")]
         public string Area { get; set; }
         [JsonPropertyName("gebyr")]

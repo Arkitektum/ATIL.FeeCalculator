@@ -238,8 +238,8 @@ namespace ATIL.FeeCalculator.Services
                     var res = new CalculationResult()
                     {
                         Area = areal,
-                        Bygningstype = bygningstype,
-                        Tiltakstype = tiltakstype,
+                        Bygningstype = _bygningstyper.FirstOrDefault(x => x.Kode.Equals(bygningstype)),
+                        Tiltakstype = _tiltakstyper.FirstOrDefault(x => x.Kode.Equals(tiltakstype)),
                         Description = foundCategory.Description,
                         Fee = new Fee() { FeeAmount = foundArea.Price, FeeCategory = foundArea.CategoryCode }
                     };
