@@ -36,9 +36,9 @@ namespace ATIL.FeeCalculator
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ATIL.FeeCalculator v1"));
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ATIL.FeeCalculator v1"));
 
             app.UseHttpsRedirection();
 
