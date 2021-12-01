@@ -12,8 +12,11 @@ namespace ATIL.FeeCalculator.Controllers
     [ApiController]
     public class AtilFeeCalculationController : BaseController
     {
-        public AtilFeeCalculationController(ILogger<AtilFeeCalculationController> logger) : base(logger)
-        { }
+        private readonly AtilFeeCalculationService _atilFeeCalculationService;
+        public AtilFeeCalculationController(ILogger<AtilFeeCalculationController> logger, AtilFeeCalculationService atilFeeCalculationService) : base(logger)
+        {
+            _atilFeeCalculationService = atilFeeCalculationService;
+        }
 
         [Route("api/atil-gebyr")]
         [HttpGet]
@@ -28,14 +31,13 @@ namespace ATIL.FeeCalculator.Controllers
             //}
             try
             {
-                AtilFeeCalculationService feeCalculationService = new AtilFeeCalculationService();
-                var calculationResult = feeCalculationService.Calculate(tiltakstype, bygningstype, areal);
+                var calculationResult = _atilFeeCalculationService.Calculate(tiltakstype, bygningstype, areal);
 
                 return Ok(calculationResult);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -47,14 +49,13 @@ namespace ATIL.FeeCalculator.Controllers
         {
             try
             {
-                AtilFeeCalculationService feeCalculationService = new AtilFeeCalculationService();
-                var tiltakstyper = feeCalculationService.GetTiltakstyper();
+                var tiltakstyper = _atilFeeCalculationService.GetTiltakstyper();
 
                 return Ok(tiltakstyper);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -66,14 +67,13 @@ namespace ATIL.FeeCalculator.Controllers
         {
             try
             {
-                AtilFeeCalculationService feeCalculationService = new AtilFeeCalculationService();
-                var bygningstyper = feeCalculationService.GetBygningstyper();
+                var bygningstyper = _atilFeeCalculationService.GetBygningstyper();
 
                 return Ok(bygningstyper);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }

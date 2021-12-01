@@ -1,3 +1,4 @@
+using ATIL.FeeCalculator.Data;
 using ATIL.FeeCalculator.Middleware;
 using ATIL.FeeCalculator.Services;
 using Microsoft.AspNetCore.Builder;
@@ -21,9 +22,9 @@ namespace ATIL.FeeCalculator
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddScoped<AtilFeeCalculationService>();
+            services.AddSingleton<Repository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ATIL.FeeCalculator", Version = "v1" });
