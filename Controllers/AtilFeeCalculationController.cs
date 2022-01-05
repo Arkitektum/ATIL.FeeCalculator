@@ -41,6 +41,27 @@ namespace ATIL.FeeCalculator.Controllers
             }
         }
 
+        [Route("api/atil-gebyr-basis")]
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<CalculationResultBasis> CalculatAtilFeeBasis(string tiltakstype, string bygningstype, string areal)
+        {
+
+            try
+            {
+                var calculationResult = _atilFeeCalculationService.Calculate(tiltakstype, bygningstype, areal);
+
+                CalculationResultBasis result = new CalculationResultBasis() { FeeCategory = calculationResult.Fee.FeeCategory, FeeAmount = calculationResult.Fee.FeeAmount };
+
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         [Route("api/tiltakstyper")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
