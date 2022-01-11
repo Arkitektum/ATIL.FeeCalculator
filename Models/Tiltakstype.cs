@@ -10,7 +10,6 @@ namespace ATIL.FeeCalculator.Models
         public string Kode { get; set; }
         public string Navn { get; set; }
         public string Kategori { get; set; }
-        public string TiltakstypekodeGeonorge { get; set; }
 
     }
 }
