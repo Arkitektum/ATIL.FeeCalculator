@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'atil-feecalculator'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_02C0E3C95BB74F7093DAA24FD5629F2D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF6AAC42396146BF98106F431C8F66D7 }}
           package: .
