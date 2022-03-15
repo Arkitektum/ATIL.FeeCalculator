@@ -24,11 +24,6 @@ namespace ATIL.FeeCalculator.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<CalculationResult> CalculatAtilFee(string tiltakstype, string bygningstype, string areal)
         {
-            //// Authentication?
-            //if (!VerifyInput(input))
-            //{
-            //    return BadRequest();
-            //}
             try
             {
                 var calculationResult = _atilFeeCalculationService.Calculate(tiltakstype, bygningstype, areal);
