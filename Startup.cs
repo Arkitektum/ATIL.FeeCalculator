@@ -40,6 +40,10 @@ namespace ATIL.FeeCalculator
             }
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ATIL.FeeCalculator v1"));
+            app.UseCors(options => options
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        );
 
             app.UseHttpsRedirection();
 
