@@ -51,7 +51,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'atil-feecalculator'
+          app-name: 'atil-feecalculator-api'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF6AAC42396146BF98106F431C8F66D7 }}
           package: .
