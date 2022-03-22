@@ -25,6 +25,11 @@ namespace ATIL.FeeCalculator.Services
             return _repository.GetBygningstyper();
         }
 
+        public List<FeeCategoryDescription> GetGebyrKategoriBeskrivelser()
+        {
+            return _repository.GetGebyrKategoriBeskrivelser();
+        }
+
         public CalculationResult Calculate(string tiltakstypekode, string bygningstypekode, string areal)
         {
             try
@@ -54,7 +59,7 @@ namespace ATIL.FeeCalculator.Services
                         Bygningstype = GetBygningstyper().FirstOrDefault(x => x.Kode.Equals(bygningstypekode)),
                         Tiltakstype = GetTiltakstyper().FirstOrDefault(x => x.Kode.Equals(tiltakstypekode)),
                         Description = foundCategory.Description,
-                        Fee = new Fee() { FeeAmount = foundArea.Price, FeeCategory = foundArea.CategoryCode }
+                        Fee = new Fee() { FeeAmount = foundArea.Price, FeeCategory = foundArea.CategoryCode, FeeCategoryDescription = GetGebyrKategoriBeskrivelser().FirstOrDefault(x => x.Code.Equals(foundArea.CategoryCode)).Description }
                     };
 
                     return res;

@@ -11,11 +11,14 @@ namespace ATIL.FeeCalculator.Data
         private List<Category> _categories;
         private List<Tiltakstype> _tiltakstyper;
         private List<Bygningstype> _bygningstyper;
+        private List<FeeCategoryDescription> _feeCategoryDescriptions;
+
         public Repository()
         {
             PopulateTiltakstyper();
             PopulateBygningstyper();
             PopulateKategorier();
+            PopulateFeeCategoryDescriptions();
         }
         public List<Bygningstype> GetBygningstyper()
         {
@@ -25,6 +28,10 @@ namespace ATIL.FeeCalculator.Data
         public List<Category> GetKategorier()
         {
             return _categories;
+        }
+        public List<FeeCategoryDescription> GetGebyrKategoriBeskrivelser()
+        {
+            return _feeCategoryDescriptions;
         }
 
         public List<Tiltakstype> GetTiltakstyper()
@@ -164,6 +171,28 @@ namespace ATIL.FeeCalculator.Data
             _bygningstyper.Add(new Bygningstype() { Kode = "830", Navn = "Monument", Kategori = "1" });
             _bygningstyper.Add(new Bygningstype() { Kode = "840", Navn = "Offentlig toalett", Kategori = "1" });
 
+        }
+
+        private void PopulateFeeCategoryDescriptions()
+        {
+            _feeCategoryDescriptions = new List<FeeCategoryDescription>();
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "1", Description = "Kategori 1a (BRA 0-100m2) Publikumsbygg og yrkesbygg uten faste arbeidsplasser" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "3", Description = "Kategori 1b (BRA 101-500 m2) Publikumsbygg og yrkesbygg uten faste arbeidsplasser" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "4", Description = "Kategori 1c (BRA  501-1000 m2) Publikumsbygg og yrkesbygg uten faste arbeidsplasser" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "5", Description = "Kategori 1d (BRA 1001-10 000 m2) Publikumsbygg og yrkesbygg uten faste arbeidsplasser" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "6", Description = "Kategori 1e (BRA over 10 000 m2) Publikumsbygg og yrkesbygg uten faste arbeidsplasser" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "7", Description = "Kategori 2a (BRA 0-100 m2) Yrkesbygg med faste arbeidsplasser, men uten maskinelle prosesser og forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "8", Description = "Kategori 2b (BRA 101-500 m2) Yrkesbygg med faste arbeidsplasser, men uten maskinelle prosesser og forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "9", Description = "Kategori 2c (BRA 501-1000 m2) Yrkesbygg med faste arbeidsplasser, men uten maskinelle prosesser og forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "10", Description = "Kategori 2d (BRA 1001 - 10 000 m2) Yrkesbygg med faste arbeidsplasser, men uten maskinelle prosesser og forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "11", Description = "Kategori 2e (BRA over 10 000 m2) Yrkesbygg med faste arbeidsplasser, men uten maskinelle prosesser og forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "12", Description = "Kategori 3a (BRA -100 m2) Yrkesbygg med faste arbeidsplasser og med maskinelle prosesser og fare for forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "13", Description = "Kategori 3b (BRA 101-500 m2) Yrkesbygg med faste arbeidsplasser og med maskinelle prosesser og fare for forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "14", Description = "Kategori 3c (BRA 501-1000 m2) Yrkesbygg med faste arbeidsplasser og med maskinelle prosesser og fare for forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "15", Description = "Kategori 3d (BRA 1001-10 000 m2) Yrkesbygg med faste arbeidsplasser og med maskinelle prosesser og fare for forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "16", Description = "Kategori 3e (BRA over 10 000 m2)Yrkesbygg med faste arbeidsplasser og med maskinelle prosesser og fare for forurensninger" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "17", Description = "Kategori 4  Større byggekomplekser" });
+            _feeCategoryDescriptions.Add(new FeeCategoryDescription() { Code = "18", Description = "Kategori 5  Andre enkeltsaker" });
         }
 
         private void PopulateKategorier()
