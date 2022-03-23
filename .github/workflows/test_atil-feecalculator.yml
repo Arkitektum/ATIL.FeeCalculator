@@ -1,0 +1,28 @@
+on: 
+  push:
+    branches:
+      - "release/rc-*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+          include-prerelease: true
+      - name: Install dependencies
+        run: dotnet restore .
+      - name: Build
+        run: dotnet publish --configuration Release --no-restore -o publish
+      - name: checkout octopus
+        uses: OctopusDeploy/install-octopus-cli-action@v1.1.8
+      - name: pack & push to octo 
+        run: |
+          BRANCHNAME=${{github.ref_name}}
+          MY_VAR="1.0.${{github.run_number}}-${BRANCHNAME##*/}"
+          octo pack --basePath=publish --id atil_feecalculator --version $MY_VAR --outFolder ./out --format zip
+          octo push --package "./out/atil_feecalculator.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
+
