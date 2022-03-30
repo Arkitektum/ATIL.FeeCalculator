@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Builder;
 
 namespace ATIL.FeeCalculator
 {
@@ -53,6 +54,7 @@ namespace ATIL.FeeCalculator
             app.UseMiddleware(typeof(ExceptionHandlingMiddleware));
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGet("/ping", () => "pong");
                 endpoints.MapControllers();
             });
         }
