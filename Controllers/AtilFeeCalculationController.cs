@@ -6,6 +6,7 @@ using ATIL.FeeCalculator.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 
 namespace ATIL.FeeCalculator.Controllers
 {
@@ -65,7 +66,7 @@ namespace ATIL.FeeCalculator.Controllers
         {
             try
             {
-                var tiltakstyper = _atilFeeCalculationService.GetTiltakstyper();
+                var tiltakstyper = _atilFeeCalculationService.GetTiltakstyper().OrderBy(x => x.Kode);
 
                 return Ok(tiltakstyper);
             }
@@ -83,7 +84,7 @@ namespace ATIL.FeeCalculator.Controllers
         {
             try
             {
-                var bygningstyper = _atilFeeCalculationService.GetBygningstyper();
+                var bygningstyper = _atilFeeCalculationService.GetBygningstyper().OrderBy(x => x.Kode);
 
                 return Ok(bygningstyper);
             }

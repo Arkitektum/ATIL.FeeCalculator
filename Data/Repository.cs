@@ -42,32 +42,32 @@ namespace ATIL.FeeCalculator.Data
         private void PopulateTiltakstyper()
         {
             _tiltakstyper = new List<Tiltakstype>();
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggover70m2", Navn = "Nytt bygg - ikke boligformål over 70 m²", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggunder70m2", Navn = "Nytt bygg - ikke boligformål under 70 m²", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggdriftsbygningover1000m2", Navn = "Nytt bygg - driftsbygning i landbruket med samlet areal over 1000 m2", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggdriftsbygningunder1000m2", Navn = "Nytt bygg - driftsbygning i landbruk med samlet areal under 1000 m2", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "brannskille", Navn = "Endring innvendig i bygg - brannskille i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "lydskille", Navn = "Endring innvendig i bygg - lydskille i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "fundamenter", Navn = "Endring innvendig i bygg - fundamenter i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "berekonstruksjoner", Navn = "Endring innvendig i bygg - bærekonstruksjoner i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "vatrom", Navn = "Endring innvendig i bygg - våtrom i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "tilbyggover50m2", Navn = "Endring av bygg - utvendig tilbygg større enn 50 m²", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "tilbyggunder50m2", Navn = "Endring av bygg - utvendig tilbygg mindre enn 50 m²", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "pabygg", Navn = "Endring av bygg - påbygg", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "underbygg", Navn = "Endring av bygg - underbygg", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningendringover1000m2", Navn = "Endring av bygg - endring av driftsbygning i landbruket over 1000m2 (BRA)", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningendringunder1000m2", Navn = "Endring av bygg - endring av driftsbygning i landbruket under 1000m2 (BRA)", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningtilbyggover1000m2", Navn = "Endring av bygg - tilbygg til driftsbygning i landbruket med samlet area over 1000 m2 (BRA)", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningtilbyggunder1000m2", Navn = "Endring av bygg - tilbygg til driftsbygning i landbruket med samlet area under 1000 m2 (BRA)", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "fasade", Navn = "Endring av bygg - fasade", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "bruksendring", Navn = "Endring av bruk - bruksendring", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "endringbyggannet", Navn = "Endring av bygg - annet", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "endringdrift", Navn = "Endring av bruk - vesentlig endring av tidligere drift", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "installasjonernyttanlegg", Navn = "Byggtekniske installasjoner - nyanlegg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "utvendigeinstallasjoner", Navn = "Byggtekniske installasjoner - utvendige tekniske installasjoner", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "installasjonibygg", Navn = "Byggtekniske installasjoner - teknisk installasjon i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "installasjonerreparasjon", Navn = "Byggtekniske installasjoner - reparasjon", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "berekonstruksjoner", Navn = "Endring av bygg - innvendig - Bærekonstruksjoner i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "brannskille", Navn = "Endring av bygg - innvendig - Brannskille i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "bruksendring", Navn = "Bruksendring", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningendringover1000m2", Navn = "Endring av driftsbygning i landbruket over 1000m2 (BRA)", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningendringunder1000m2", Navn = "Endring av driftsbygning i landbruket under 1000m2 (BRA)", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningtilbyggover1000m2", Navn = "Tilbygg til driftsbygning i landbruket med samlet area over 1000 m2 (BRA)", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningtilbyggunder1000m2", Navn = "Tilbygg til driftsbygning i landbruket med samlet area under 1000 m2 (BRA)", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "endringbyggannet", Navn = "Endring av bygg - Annet", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "endringdrift", Navn = "Vesentlig endring av tidligere drift", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "fasade", Navn = "Endring av bygg - utvendig - Fasade", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "fundamenter", Navn = "Endring av bygg - innvendig - Fundamenter i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "installasjonernyttanlegg", Navn = "Bygningstekniske installasjoner - Nytt anlegg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "installasjonerreparasjon", Navn = "Bygningstekniske installasjoner - Reparasjon", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "installasjonibygg", Navn = "Bygningstekniske installasjoner - Endring - Teknisk installasjon i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "lydskille", Navn = "Endring av bygg - innvendig - Lydskille i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggdriftsbygningover1000m2", Navn = "Nytt bygg - Driftsbygning i landbruket med samlet areal over 1000 m2", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggdriftsbygningunder1000m2", Navn = "Nytt bygg - Driftsbygning i landbruk med samlet areal under 1000 m2", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggover70m2", Navn = "Nytt bygg - Over 70 m2 - ikke boligformål", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggunder70m2", Navn = "Nytt bygg - Under 70 m2 - ikke boligformål", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "pabygg", Navn = "Endring av bygg - utvendig - Påbygg", Kategori = "1, 2, 3" });
             _tiltakstyper.Add(new Tiltakstype() { Kode = "plasseringmidlertidig", Navn = "Plassering av midlertidige bygninger, konstruksjoner og anlegg", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "tilbyggover50m2", Navn = "Endring av bygg - utvendig - Tilbygg med samlet areal større enn 50 m2", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "tilbyggunder50m2", Navn = "Endring av bygg - utvendig - Tilbygg med samlet areal mindre enn 50 m2", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "underbygg", Navn = "Endring av bygg - utvendig - Underbygg", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "utvendigeinstallasjoner", Navn = "Bygningstekniske installasjoner - Endring - Utvendige tekniske installasjoner", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { Kode = "vatrom", Navn = "Endring av bygg -  innvendig - Våtrom i bygg", Kategori = "5" });
 
         }
         private void PopulateBygningstyper()
