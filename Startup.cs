@@ -26,6 +26,7 @@ namespace ATIL.FeeCalculator
             services.AddControllers();
             services.AddScoped<AtilFeeCalculationService>();
             services.AddSingleton<Repository>();
+            services.AddHealthChecks();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ATIL.FeeCalculator", Version = "v1" });
@@ -56,6 +57,7 @@ namespace ATIL.FeeCalculator
             {
                 endpoints.MapGet("/ping", () => "pongers");
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
         }
     }
