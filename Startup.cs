@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Builder;
 
 namespace ATIL.FeeCalculator
 {
@@ -25,6 +26,7 @@ namespace ATIL.FeeCalculator
             services.AddControllers();
             services.AddScoped<AtilFeeCalculationService>();
             services.AddSingleton<Repository>();
+            services.AddHealthChecks();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ATIL.FeeCalculator", Version = "v1" });
@@ -53,7 +55,9 @@ namespace ATIL.FeeCalculator
             app.UseMiddleware(typeof(ExceptionHandlingMiddleware));
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGet("/ping", () => "pongers");
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
         }
     }
