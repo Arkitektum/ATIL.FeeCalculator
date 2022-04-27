@@ -2,7 +2,7 @@
 {
     public class FeeCategoryDescription
     {
-        public string Code { get; set; }
-        public string Description { get; set; }
+        public string Kode { get; set; }
+        public string Beskrivelse { get; set; }
     }
 }
