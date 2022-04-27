@@ -93,5 +93,23 @@ namespace ATIL.FeeCalculator.Controllers
                 throw;
             }
         }
+
+        [Route("api/gebyrkategorier")]
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<List<Bygningstype>> GetGebyrKategoriBeskrivelser()
+        {
+            try
+            {
+                var gebyrkategorier = _atilFeeCalculationService.GetGebyrKategoriBeskrivelser().OrderBy(x => x.Kode);
+
+                return Ok(gebyrkategorier);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -59,7 +59,7 @@ namespace ATIL.FeeCalculator.Services
                         Bygningstype = GetBygningstyper().FirstOrDefault(x => x.Kode.Equals(bygningstypekode)),
                         Tiltakstype = GetTiltakstyper().FirstOrDefault(x => x.Kode.Equals(tiltakstypekode)),
                         Description = foundCategory.Description,
-                        Fee = new Fee() { FeeAmount = foundArea.Price, FeeCategory = foundArea.CategoryCode, FeeCategoryDescription = GetGebyrKategoriBeskrivelser().FirstOrDefault(x => x.Code.Equals(foundArea.CategoryCode)).Description }
+                        Fee = new Fee() { FeeAmount = foundArea.Price, FeeCategory = foundArea.CategoryCode, FeeCategoryDescription = GetGebyrKategoriBeskrivelser().FirstOrDefault(x => x.Kode.Equals(foundArea.CategoryCode)).Beskrivelse }
                     };
 
                     return res;
