@@ -30,6 +30,27 @@ namespace ATIL.FeeCalculator.Services
             return _repository.GetGebyrKategoriBeskrivelser();
         }
 
+        public CalculationResult Calculate(IEnumerable<string> tiltakstypekode, string bygningstypekode, string areal)
+        {
+            int maxFee = 0;
+            CalculationResult result = null;
+            foreach (var tiltakstype in tiltakstypekode)
+            {
+                var calculation = Calculate(tiltakstype, bygningstypekode, areal);
+                if (calculation != null)
+                {
+                    if (calculation.Fee.FeeAmount > maxFee)
+                    {
+                        maxFee = calculation.Fee.FeeAmount;
+                        result = calculation;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+
         public CalculationResult Calculate(string tiltakstypekode, string bygningstypekode, string areal)
         {
             try
