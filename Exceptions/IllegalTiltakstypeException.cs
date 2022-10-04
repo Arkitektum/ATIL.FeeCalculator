@@ -16,9 +16,5 @@ namespace ATIL.FeeCalculator.Exceptions
         public IllegalTiltakstypeException(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        //protected IllegalTiltakstypeException(SerializationInfo info, StreamingContext context) : base(info, context)
-        //{
-        //}
     }
 }
