@@ -24,5 +24,5 @@ jobs:
           MY_VAR="1.0.${{github.run_number}}"
           octo pack --basePath=publish --id atil_feecalculator --version $MY_VAR --outFolder ./out --format zip
           octo push --package "./out/atil_feecalculator.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
-          octo create-release --project="ATIL - Fee Calculator API" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}" --channel=Prod --package=$MY_VAR
+          octo create-release --project="ATIL - Fee Calculator API" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}" --channel=Prod --version=$MY_VAR
 
