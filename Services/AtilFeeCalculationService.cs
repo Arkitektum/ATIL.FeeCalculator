@@ -72,14 +72,19 @@ namespace ATIL.FeeCalculator.Services
             {
                 if (Int32.TryParse(areal, out int arealTall))
                 {
-                    if (arealTall <= 0)
+                    if (arealTall < 0)
                     {
-                        throw new ArgumentException($"Areal må være et heltall større enn 0. '{areal}' er ikke gyldig.");
+                        throw new ArgumentException($"Areal kan ikke være et negativt tall. '{areal}' er ikke gyldig.");
                     }
 
                     if (!_repository.GetTiltakstyper().Exists(x => x.Kode.Equals(tiltakstypekode)))
                     {
                         throw new IllegalTiltakstypeException($"Angitt kode '{tiltakstypekode}' for tiltakstype er ikke tillatt.");
+                    }
+
+                    if (arealTall == 0 && _repository.GetTiltakstyper().Any(tiltakstype => tiltakstype.Kode.Equals(tiltakstypekode) && !tiltakstype.AllowZeroBRA))
+                    {
+                        throw new ArgumentException($"Areal må være et heltall større enn 0. '{areal}' er ikke gyldig.");
                     }
 
                     if (!_repository.GetBygningstyper().Exists(x => x.Kode.Equals(bygningstypekode)))
@@ -88,7 +93,7 @@ namespace ATIL.FeeCalculator.Services
                     }
 
                     var foundCategory = _repository.GetKategorier().FirstOrDefault(x => x.Tiltakstype.Contains(tiltakstypekode) && x.Bygningstype.Contains(bygningstypekode));
-                    var foundArea = foundCategory.CategoryAreas.First(x => arealTall > x.Lower && arealTall <= x.Upper);
+                    var foundArea = foundCategory.CategoryAreas.First(x => arealTall >= x.Lower && arealTall <= x.Upper);
                     var res = new CalculationResult()
                     {
                         Area = areal,
