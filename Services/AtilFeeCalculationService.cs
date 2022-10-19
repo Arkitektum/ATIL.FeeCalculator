@@ -82,7 +82,7 @@ namespace ATIL.FeeCalculator.Services
                         throw new IllegalTiltakstypeException($"Angitt kode '{tiltakstypekode}' for tiltakstype er ikke tillatt.");
                     }
 
-                    if (arealTall == 0 && _repository.GetTiltakstyper().Any(tiltakstype => tiltakstype.Kode.Equals(tiltakstypekode) && !tiltakstype.AllowZeroBRA))
+                    if (arealTall == 0 && _repository.GetTiltakstyper().Any(tiltakstype => tiltakstype.Kode.Equals(tiltakstypekode) && !tiltakstype.TillaterZeroIAreal))
                     {
                         throw new ArgumentException($"Areal må være et heltall større enn 0. '{areal}' er ikke gyldig.");
                     }
