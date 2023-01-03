@@ -53,6 +53,7 @@ namespace ATIL.FeeCalculator.Data
             _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "endringdrift", Navn = "Vesentlig endring av tidligere drift", Kategori = "1, 2, 3" });
             _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "fasade", Navn = "Endring av bygg - utvendig - Fasade", Kategori = "5" });
             _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "fundamenter", Navn = "Endring av bygg - innvendig - Fundamenter i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "hovedombygging", Navn = "Endring av bygg - hovedombygging", Kategori = "1, 2, 3" });
             _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "installasjonernyttanlegg", Navn = "Bygningstekniske installasjoner - Nytt anlegg", Kategori = "5" });
             _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "installasjonerreparasjon", Navn = "Bygningstekniske installasjoner - Reparasjon", Kategori = "5" });
             _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "installasjonibygg", Navn = "Bygningstekniske installasjoner - Endring - Teknisk installasjon i bygg", Kategori = "5" });
@@ -202,7 +203,7 @@ namespace ATIL.FeeCalculator.Data
             Category category_3;
             Category category_5;
 
-            List<string> tiltakstyper_kat_1_3 = new List<string>() { "nyttbyggover70m2", "nyttbyggunder70m2", "nyttbyggdriftsbygningover1000m2", "nyttbyggdriftsbygningunder1000m2", "tilbyggover50m2", "tilbyggunder50m2", "pabygg", "underbygg", "driftsbygningtilbyggover1000m2", "driftsbygningtilbyggunder1000m2", "bruksendring", "endringdrift", "plasseringmidlertidig" };
+            List<string> tiltakstyper_kat_1_3 = new List<string>() { "hovedombygging", "nyttbyggover70m2", "nyttbyggunder70m2", "nyttbyggdriftsbygningover1000m2", "nyttbyggdriftsbygningunder1000m2", "tilbyggover50m2", "tilbyggunder50m2", "pabygg", "underbygg", "driftsbygningtilbyggover1000m2", "driftsbygningtilbyggunder1000m2", "bruksendring", "endringdrift", "plasseringmidlertidig" };
             List<string> tiltakstyper_kat_5 = new List<string>() { "brannskille", "lydskille", "fundamenter", "berekonstruksjoner", "vatrom", "driftsbygningendringover1000m2", "driftsbygningendringunder1000m2", "fasade", "endringbyggannet", "installasjonernyttanlegg", "utvendigeinstallasjoner", "installasjonibygg", "installasjonerreparasjon" };
 
             IEnumerable<string> bygningstype_kat_1 = new List<string>() { "223", "229", "233", "243", "245", "429", "431", "439", "523", "524", "529", "611", "654", "659", "825", "829", "830", "840" };
