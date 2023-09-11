@@ -42,32 +42,33 @@ namespace ATIL.FeeCalculator.Data
         private void PopulateTiltakstyper()
         {
             _tiltakstyper = new List<Tiltakstype>();
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "berekonstruksjoner", Navn = "Endring av bygg - innvendig - Bærekonstruksjoner i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "brannskille", Navn = "Endring av bygg - innvendig - Brannskille i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "bruksendring", Navn = "Bruksendring", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningendringover1000m2", Navn = "Endring av driftsbygning i landbruket over 1000m2 (BRA)", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningendringunder1000m2", Navn = "Endring av driftsbygning i landbruket under 1000m2 (BRA)", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningtilbyggover1000m2", Navn = "Tilbygg til driftsbygning i landbruket med samlet area over 1000 m2 (BRA)", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "driftsbygningtilbyggunder1000m2", Navn = "Tilbygg til driftsbygning i landbruket med samlet area under 1000 m2 (BRA)", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "endringbyggannet", Navn = "Endring av bygg - Annet", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "endringdrift", Navn = "Vesentlig endring av tidligere drift", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "fasade", Navn = "Endring av bygg - utvendig - Fasade", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "fundamenter", Navn = "Endring av bygg - innvendig - Fundamenter i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "installasjonernyttanlegg", Navn = "Bygningstekniske installasjoner - Nytt anlegg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "installasjonerreparasjon", Navn = "Bygningstekniske installasjoner - Reparasjon", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "installasjonibygg", Navn = "Bygningstekniske installasjoner - Endring - Teknisk installasjon i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "lydskille", Navn = "Endring av bygg - innvendig - Lydskille i bygg", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggdriftsbygningover1000m2", Navn = "Nytt bygg - Driftsbygning i landbruket med samlet areal over 1000 m2", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggdriftsbygningunder1000m2", Navn = "Nytt bygg - Driftsbygning i landbruk med samlet areal under 1000 m2", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggover70m2", Navn = "Nytt bygg - Over 70 m2 - ikke boligformål", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "nyttbyggunder70m2", Navn = "Nytt bygg - Under 70 m2 - ikke boligformål", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "pabygg", Navn = "Endring av bygg - utvendig - Påbygg", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "plasseringmidlertidig", Navn = "Plassering av midlertidige bygninger, konstruksjoner og anlegg", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "tilbyggover50m2", Navn = "Endring av bygg - utvendig - Tilbygg med samlet areal større enn 50 m2", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "tilbyggunder50m2", Navn = "Endring av bygg - utvendig - Tilbygg med samlet areal mindre enn 50 m2", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "underbygg", Navn = "Endring av bygg - utvendig - Underbygg", Kategori = "1, 2, 3" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "utvendigeinstallasjoner", Navn = "Bygningstekniske installasjoner - Endring - Utvendige tekniske installasjoner", Kategori = "5" });
-            _tiltakstyper.Add(new Tiltakstype() { Kode = "vatrom", Navn = "Endring av bygg -  innvendig - Våtrom i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "berekonstruksjoner", Navn = "Endring av bygg - innvendig - Bærekonstruksjoner i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "brannskille", Navn = "Endring av bygg - innvendig - Brannskille i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "bruksendring", Navn = "Bruksendring", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "driftsbygningendringover1000m2", Navn = "Endring av driftsbygning i landbruket over 1000m2 (BRA)", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "driftsbygningendringunder1000m2", Navn = "Endring av driftsbygning i landbruket under 1000m2 (BRA)", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "driftsbygningtilbyggover1000m2", Navn = "Tilbygg til driftsbygning i landbruket med samlet area over 1000 m2 (BRA)", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "driftsbygningtilbyggunder1000m2", Navn = "Tilbygg til driftsbygning i landbruket med samlet area under 1000 m2 (BRA)", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "endringbyggannet", Navn = "Endring av bygg - Annet", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "endringdrift", Navn = "Vesentlig endring av tidligere drift", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "fasade", Navn = "Endring av bygg - utvendig - Fasade", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "fundamenter", Navn = "Endring av bygg - innvendig - Fundamenter i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "hovedombygging", Navn = "Endring av bygg - hovedombygging", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "installasjonernyttanlegg", Navn = "Bygningstekniske installasjoner - Nytt anlegg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "installasjonerreparasjon", Navn = "Bygningstekniske installasjoner - Reparasjon", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "installasjonibygg", Navn = "Bygningstekniske installasjoner - Endring - Teknisk installasjon i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "lydskille", Navn = "Endring av bygg - innvendig - Lydskille i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "nyttbyggdriftsbygningover1000m2", Navn = "Nytt bygg - Driftsbygning i landbruket med samlet areal over 1000 m2", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "nyttbyggdriftsbygningunder1000m2", Navn = "Nytt bygg - Driftsbygning i landbruk med samlet areal under 1000 m2", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "nyttbyggover70m2", Navn = "Nytt bygg - Over 70 m2 - ikke boligformål", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "nyttbyggunder70m2", Navn = "Nytt bygg - Under 70 m2 - ikke boligformål", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "pabygg", Navn = "Endring av bygg - utvendig - Påbygg", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "plasseringmidlertidig", Navn = "Plassering av midlertidige bygninger, konstruksjoner og anlegg", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "tilbyggover50m2", Navn = "Endring av bygg - utvendig - Tilbygg med samlet areal større enn 50 m2", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "tilbyggunder50m2", Navn = "Endring av bygg - utvendig - Tilbygg med samlet areal mindre enn 50 m2", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = false, Kode = "underbygg", Navn = "Endring av bygg - utvendig - Underbygg", Kategori = "1, 2, 3" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true, Kode = "utvendigeinstallasjoner", Navn = "Bygningstekniske installasjoner - Endring - Utvendige tekniske installasjoner", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() {TillaterZeroIAreal = true,  Kode = "vatrom", Navn = "Endring av bygg -  innvendig - Våtrom i bygg", Kategori = "5" });
 
         }
         private void PopulateBygningstyper()
@@ -202,7 +203,7 @@ namespace ATIL.FeeCalculator.Data
             Category category_3;
             Category category_5;
 
-            List<string> tiltakstyper_kat_1_3 = new List<string>() { "nyttbyggover70m2", "nyttbyggunder70m2", "nyttbyggdriftsbygningover1000m2", "nyttbyggdriftsbygningunder1000m2", "tilbyggover50m2", "tilbyggunder50m2", "pabygg", "underbygg", "driftsbygningtilbyggover1000m2", "driftsbygningtilbyggunder1000m2", "bruksendring", "endringdrift", "plasseringmidlertidig" };
+            List<string> tiltakstyper_kat_1_3 = new List<string>() { "hovedombygging", "nyttbyggover70m2", "nyttbyggunder70m2", "nyttbyggdriftsbygningover1000m2", "nyttbyggdriftsbygningunder1000m2", "tilbyggover50m2", "tilbyggunder50m2", "pabygg", "underbygg", "driftsbygningtilbyggover1000m2", "driftsbygningtilbyggunder1000m2", "bruksendring", "endringdrift", "plasseringmidlertidig" };
             List<string> tiltakstyper_kat_5 = new List<string>() { "brannskille", "lydskille", "fundamenter", "berekonstruksjoner", "vatrom", "driftsbygningendringover1000m2", "driftsbygningendringunder1000m2", "fasade", "endringbyggannet", "installasjonernyttanlegg", "utvendigeinstallasjoner", "installasjonibygg", "installasjonerreparasjon" };
 
             IEnumerable<string> bygningstype_kat_1 = new List<string>() { "223", "229", "233", "243", "245", "429", "431", "439", "523", "524", "529", "611", "654", "659", "825", "829", "830", "840" };
@@ -219,10 +220,10 @@ namespace ATIL.FeeCalculator.Data
                 CategoryAreas = new List<Area>()
                 {
                     new Area() { Lower = 0, Upper = 100, CategoryCode = "1", Price = 703 },
-                    new Area() { Lower = 100, Upper = 500, CategoryCode = "3", Price = 1407 },
-                    new Area() { Lower = 500, Upper = 1000, CategoryCode = "4", Price = 2110 },
-                    new Area() { Lower = 1000, Upper = 10000, CategoryCode = "5", Price = 2814 },
-                    new Area() { Lower = 10000, Upper = 100000000, CategoryCode = "6", Price = 3895 }
+                    new Area() { Lower = 101, Upper = 500, CategoryCode = "3", Price = 1407 },
+                    new Area() { Lower = 501, Upper = 1000, CategoryCode = "4", Price = 2110 },
+                    new Area() { Lower = 1001, Upper = 10000, CategoryCode = "5", Price = 2814 },
+                    new Area() { Lower = 10001, Upper = 100000000, CategoryCode = "6", Price = 3895 }
                 }
             };
 
@@ -234,10 +235,10 @@ namespace ATIL.FeeCalculator.Data
                 CategoryAreas = new List<Area>()
                 {
                     new Area() { Lower = 0, Upper = 100, CategoryCode = "7", Price = 2110 },
-                    new Area() { Lower = 100, Upper = 500, CategoryCode = "8", Price = 4221 },
-                    new Area() { Lower = 500, Upper = 1000, CategoryCode = "9", Price = 6331 },
-                    new Area() { Lower = 1000, Upper = 10000, CategoryCode = "10", Price = 8441 },
-                    new Area() { Lower = 10000, Upper = 100000000, CategoryCode = "11", Price = 11685 }
+                    new Area() { Lower = 101, Upper = 500, CategoryCode = "8", Price = 4221 },
+                    new Area() { Lower = 501, Upper = 1000, CategoryCode = "9", Price = 6331 },
+                    new Area() { Lower = 1001, Upper = 10000, CategoryCode = "10", Price = 8441 },
+                    new Area() { Lower = 10001, Upper = 100000000, CategoryCode = "11", Price = 11685 }
                 }
             };
 
@@ -249,10 +250,10 @@ namespace ATIL.FeeCalculator.Data
                 CategoryAreas = new List<Area>()
                 {
                     new Area() { Lower = 0, Upper = 100, CategoryCode = "12", Price = 4221 },
-                    new Area() { Lower = 100, Upper = 500, CategoryCode = "13", Price = 8441 },
-                    new Area() { Lower = 500, Upper = 1000, CategoryCode = "14", Price = 12662 },
-                    new Area() { Lower = 1000, Upper = 10000, CategoryCode = "15", Price = 16883 },
-                    new Area() { Lower = 10000, Upper = 100000000, CategoryCode = "16", Price = 23370 }
+                    new Area() { Lower = 101, Upper = 500, CategoryCode = "13", Price = 8441 },
+                    new Area() { Lower = 501, Upper = 1000, CategoryCode = "14", Price = 12662 },
+                    new Area() { Lower = 1001, Upper = 10000, CategoryCode = "15", Price = 16883 },
+                    new Area() { Lower = 10001, Upper = 100000000, CategoryCode = "16", Price = 23370 }
                 }
             };
 

@@ -41,7 +41,7 @@ namespace ATIL.FeeCalculator.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<CalculationResultBasis> CalculatAtilFeeBasis(string tiltakstype, string bygningstype, string areal)
+        public ActionResult<CalculationResultBasis> CalculatAtilFeeBasis([FromQuery] IEnumerable<string> tiltakstype, string bygningstype, string areal)
         {
 
             try
