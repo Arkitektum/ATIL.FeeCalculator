@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: dotnet restore .
       - name: Build
-        run: dotnet publish ./src/ATIL.FeeCalculator.csproj--configuration Release --no-restore -o publish
+        run: dotnet publish ./src/ATIL.FeeCalculator.csproj --configuration Release --no-restore -o publish
       - name: checkout octopus
         uses: OctopusDeploy/install-octopus-cli-action@v1.1.8
       - name: pack & push to octo 
