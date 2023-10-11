@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
           include-prerelease: true
@@ -18,7 +18,7 @@ jobs:
       - name: Build
         run: dotnet publish ./src/ATIL.FeeCalculator.csproj --configuration Release --no-restore -o publish
       - name: checkout octopus
-        uses: OctopusDeploy/install-octopus-cli-action@v1.1.8
+        uses: OctopusDeploy/install-octopus-cli-action@v3
       - name: pack & push to octo 
         run: |
           BRANCHNAME=${{github.ref_name}}
