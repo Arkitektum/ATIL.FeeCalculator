@@ -1,4 +1,4 @@
-on: 
+on:
   push:
     branches:
       - "release/rc-*"
@@ -11,19 +11,20 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: "6.0.x"
           include-prerelease: true
       - name: Install dependencies
         run: dotnet restore .
       - name: Build
-        run: dotnet publish --configuration Release --no-restore -o publish
+        run: dotnet publish ./src/ATIL.FeeCalculator.csproj--configuration Release --no-restore -o publish
       - name: checkout octopus
         uses: OctopusDeploy/install-octopus-cli-action@v1.1.8
-      - name: pack & push to octo 
+      - name: pack & push to octo
         run: |
           BRANCHNAME=${{github.ref_name}}
           MY_VAR="1.0.${{github.run_number}}-${BRANCHNAME##*/}"
+          octo pack --basePath=infrastructure --id atil_feecalculator-infrastructure --version $MY_VAR --outFolder ./infra --format zip
+          octo push --package "./infra/atil_feecalculator-infrastructure.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
           octo pack --basePath=publish --id atil_feecalculator --version $MY_VAR --outFolder ./out --format zip
           octo push --package "./out/atil_feecalculator.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
           octo create-release --project="ATIL - Fee Calculator API" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}" --channel=Test
-

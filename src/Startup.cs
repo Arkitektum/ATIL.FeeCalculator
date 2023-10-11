@@ -54,7 +54,6 @@ namespace ATIL.FeeCalculator
             app.UseMiddleware(typeof(ExceptionHandlingMiddleware));
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/ping", () => "pongers");
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/health");
             });
