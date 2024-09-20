@@ -219,11 +219,11 @@ namespace ATIL.FeeCalculator.Data
                 Tiltakstype = tiltakstyper_kat_1_3,
                 CategoryAreas = new List<Area>()
                 {
-                    new Area() { Lower = 0, Upper = 100, CategoryCode = "1", Price = 1000 },
-                    new Area() { Lower = 101, Upper = 500, CategoryCode = "3", Price = 2000 },
-                    new Area() { Lower = 501, Upper = 1000, CategoryCode = "4", Price = 3000 },
-                    new Area() { Lower = 1001, Upper = 10000, CategoryCode = "5", Price = 4000 },
-                    new Area() { Lower = 10001, Upper = 100000000, CategoryCode = "6", Price = 5000 }
+                    new Area() { Lower = 0, Upper = 100, CategoryCode = "1", Price = 808 },
+                    new Area() { Lower = 101, Upper = 500, CategoryCode = "3", Price = 1618 },
+                    new Area() { Lower = 501, Upper = 1000, CategoryCode = "4", Price = 2426 },
+                    new Area() { Lower = 1001, Upper = 10000, CategoryCode = "5", Price = 3236 },
+                    new Area() { Lower = 10001, Upper = 100000000, CategoryCode = "6", Price = 4480 }
                 }
             };
 
@@ -234,11 +234,11 @@ namespace ATIL.FeeCalculator.Data
                 Tiltakstype = tiltakstyper_kat_1_3,
                 CategoryAreas = new List<Area>()
                 {
-                    new Area() { Lower = 0, Upper = 100, CategoryCode = "7", Price = 3000 },
-                    new Area() { Lower = 101, Upper = 500, CategoryCode = "8", Price = 6000 },
-                    new Area() { Lower = 501, Upper = 1000, CategoryCode = "9", Price = 9000 },
-                    new Area() { Lower = 1001, Upper = 10000, CategoryCode = "10", Price = 12000 },
-                    new Area() { Lower = 10001, Upper = 100000000, CategoryCode = "11", Price = 16500 }
+                    new Area() { Lower = 0, Upper = 100, CategoryCode = "7", Price = 2426 },
+                    new Area() { Lower = 101, Upper = 500, CategoryCode = "8", Price = 4854 },
+                    new Area() { Lower = 501, Upper = 1000, CategoryCode = "9", Price = 7280 },
+                    new Area() { Lower = 1001, Upper = 10000, CategoryCode = "10", Price = 9707 },
+                    new Area() { Lower = 10001, Upper = 100000000, CategoryCode = "11", Price = 13440 }
                 }
             };
 
@@ -249,11 +249,11 @@ namespace ATIL.FeeCalculator.Data
                 Tiltakstype = tiltakstyper_kat_1_3,
                 CategoryAreas = new List<Area>()
                 {
-                    new Area() { Lower = 0, Upper = 100, CategoryCode = "12", Price = 6000 },
-                    new Area() { Lower = 101, Upper = 500, CategoryCode = "13", Price = 12000 },
-                    new Area() { Lower = 501, Upper = 1000, CategoryCode = "14", Price = 18000 },
-                    new Area() { Lower = 1001, Upper = 10000, CategoryCode = "15", Price = 24000 },
-                    new Area() { Lower = 10001, Upper = 100000000, CategoryCode = "16", Price = 33500 }
+                    new Area() { Lower = 0, Upper = 100, CategoryCode = "12", Price = 4854 },
+                    new Area() { Lower = 101, Upper = 500, CategoryCode = "13", Price = 9707 },
+                    new Area() { Lower = 501, Upper = 1000, CategoryCode = "14", Price = 14561 },
+                    new Area() { Lower = 1001, Upper = 10000, CategoryCode = "15", Price = 19415 },
+                    new Area() { Lower = 10001, Upper = 100000000, CategoryCode = "16", Price = 26875 }
                 }
             };
 
@@ -264,7 +264,7 @@ namespace ATIL.FeeCalculator.Data
                 Tiltakstype = tiltakstyper_kat_5,
                 CategoryAreas = new List<Area>()
                 {
-                    new Area() { Lower = 0, Upper = 100000000, CategoryCode = "18", Price = 1500 }
+                    new Area() { Lower = 0, Upper = 100000000, CategoryCode = "18", Price = 1295 }
                 }
             };
 
