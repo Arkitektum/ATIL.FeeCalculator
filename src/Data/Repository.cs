@@ -69,11 +69,42 @@ namespace ATIL.FeeCalculator.Data
             _tiltakstyper.Add(new Tiltakstype() { TillaterZeroIAreal = false, Kode = "underbygg", Navn = "Endring av bygg - utvendig - Underbygg", Kategori = "1, 2, 3" });
             _tiltakstyper.Add(new Tiltakstype() { TillaterZeroIAreal = true, Kode = "utvendigeinstallasjoner", Navn = "Bygningstekniske installasjoner - Endring - Utvendige tekniske installasjoner", Kategori = "5" });
             _tiltakstyper.Add(new Tiltakstype() { TillaterZeroIAreal = true, Kode = "vatrom", Navn = "Endring av bygg -  innvendig - Våtrom i bygg", Kategori = "5" });
+            _tiltakstyper.Add(new Tiltakstype() { TillaterZeroIAreal = true, Kode = "nyttByggBlandetFormalNaringBolig", Navn = "Nytt bygg – blandet formål næring og bolig", Kategori = "1, 2, 3" });
 
         }
         private void PopulateBygningstyper()
         {
             _bygningstyper = new List<Bygningstype>();
+            _bygningstyper.Add(new Bygningstype() { Kode = "111", Navn = "Enebolig", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "112", Navn = "Enebolig med hybel eller sokkelleilighet", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "113", Navn = "Våningshus", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "121", Navn = "Tomannsbolig, vertikaldelt", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "122", Navn = "Tomannsbolig, horisontaldelt", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "123", Navn = "Våningshus, tomannsbolig, vertikaldelt", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "124", Navn = "Våningshus, tomannsbolig, horisontaldelt", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "131", Navn = "Rekkehus", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "133", Navn = "Kjede- og atriumhus", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "135", Navn = "Terrassehus", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "136", Navn = "Andre småhus med 3 boliger eller flere", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "141", Navn = "Stort frittliggende boligbygg på 2 etasjer", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "142", Navn = "Stort frittliggende boligbygg på 3 og 4 etasjer", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "143", Navn = "Stort frittliggende boligbygg på 5 etasjer eller mer", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "144", Navn = "Store sammenbygde boligbygg på 2 etasjer", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "145", Navn = "Store sammenbygde boligbygg på 3 og 4 etasjer", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "146", Navn = "Store sammenbygde boligbygg på 5 etasjer eller mer", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "151", Navn = "Bo- og servicesenter", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "152", Navn = "Studenthjem og studentboliger", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "159", Navn = "Annen bygning for bofellesskap", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "161", Navn = "Hytter, sommerhus og fritidsbygg", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "162", Navn = "Helårsbolig benyttet som fritidsbolig", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "163", Navn = "Våningshus benyttet som fritidsbolig", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "171", Navn = "Seterhus, sel, rorbu og lignende", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "172", Navn = "Skogs- og utmarkskoie eller gamme", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "181", Navn = "Garasje, uthus eller anneks til bolig", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "182", Navn = "Garasje, uthus eller anneks til fritidsbolig", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "183", Navn = "Naust, båthus og sjøbu", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "193", Navn = "Boligbrakker", Kategori = "2" });
+            _bygningstyper.Add(new Bygningstype() { Kode = "199", Navn = "Annen boligbygning, for eksempel sekundærbolig reindrift", Kategori = "2" });
             _bygningstyper.Add(new Bygningstype() { Kode = "211", Navn = "Fabrikkbygning", Kategori = "3" });
             _bygningstyper.Add(new Bygningstype() { Kode = "212", Navn = "Verkstedbygning", Kategori = "3" });
             _bygningstyper.Add(new Bygningstype() { Kode = "214", Navn = "Bygning for renseanlegg", Kategori = "3" });
@@ -203,11 +234,11 @@ namespace ATIL.FeeCalculator.Data
             Category category_3;
             Category category_5;
 
-            List<string> tiltakstyper_kat_1_3 = new List<string>() { "hovedombygging", "nyttbyggover70m2", "nyttbyggunder70m2", "nyttbyggdriftsbygningover1000m2", "nyttbyggdriftsbygningunder1000m2", "tilbyggover50m2", "tilbyggunder50m2", "pabygg", "underbygg", "driftsbygningtilbyggover1000m2", "driftsbygningtilbyggunder1000m2", "bruksendring", "endringdrift", "plasseringmidlertidig" };
+            List<string> tiltakstyper_kat_1_3 = new List<string>() { "hovedombygging", "nyttbyggover70m2", "nyttbyggunder70m2", "nyttbyggdriftsbygningover1000m2", "nyttbyggdriftsbygningunder1000m2", "tilbyggover50m2", "tilbyggunder50m2", "pabygg", "underbygg", "driftsbygningtilbyggover1000m2", "driftsbygningtilbyggunder1000m2", "bruksendring", "endringdrift", "plasseringmidlertidig", "nyttByggBlandetFormalNaringBolig" };
             List<string> tiltakstyper_kat_5 = new List<string>() { "brannskille", "lydskille", "fundamenter", "berekonstruksjoner", "vatrom", "driftsbygningendringover1000m2", "driftsbygningendringunder1000m2", "fasade", "endringbyggannet", "installasjonernyttanlegg", "utvendigeinstallasjoner", "installasjonibygg", "installasjonerreparasjon" };
 
             IEnumerable<string> bygningstype_kat_1 = new List<string>() { "223", "229", "233", "243", "245", "429", "431", "439", "523", "524", "529", "611", "654", "659", "825", "829", "830", "840" };
-            IEnumerable<string> bygningstype_kat_2 = new List<string>() { "231", "232", "239", "241", "248", "249", "311", "312", "313", "319", "321", "322", "329", "330", "412", "511", "512", "519", "521", "522", "612", "613", "614", "615", "616", "619", "621", "622", "629", "641", "642", "643", "649", "651", "652", "653", "655", "661", "662", "663", "669", "671", "672", "673", "674", "675", "679", "722", "723", "732", "739", "819", "821" };
+            IEnumerable<string> bygningstype_kat_2 = new List<string>() { "111", "112", "113", "121", "122", "123", "124", "131", "133", "135", "136", "141", "142", "143", "144", "145", "146", "151", "152", "159", "161", "162", "163", "171", "172", "181", "182", "183", "193", "199", "231", "232", "239", "241", "248", "249", "311", "312", "313", "319", "321", "322", "329", "330", "412", "511", "512", "519", "521", "522", "612", "613", "614", "615", "616", "619", "621", "622", "629", "641", "642", "643", "649", "651", "652", "653", "655", "661", "662", "663", "669", "671", "672", "673", "674", "675", "679", "722", "723", "732", "739", "819", "821" };
             IEnumerable<string> bygningstype_kat_3 = new List<string>() { "211", "212", "214", "216", "219", "221", "244", "323", "411", "415", "416", "419", "441", "449", "531", "532", "533", "539", "623", "719", "721", "729", "731", "822", "823", "824" };
 
             IEnumerable<string> bygningstype_kat_5 = bygningstype_kat_1.ToList().Concat(bygningstype_kat_2).ToList().Concat(bygningstype_kat_3).ToList();
