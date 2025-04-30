@@ -54,4 +54,4 @@ jobs:
           space: 'Default'
           project: "ATIL - Fee Calculator API"
           release_number: "1.0.${{github.run_number}}-beta"
-          channel: Test
+          channel: Dev
