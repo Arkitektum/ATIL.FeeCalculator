@@ -17,10 +17,10 @@ jobs:
         run: dotnet restore .
       - name: Build
         run: dotnet publish ./src/ATIL.FeeCalculator.csproj --configuration Release --no-restore -o publish
-      - name: Install OpenSSL 1.1
+      - name: Install libssl1.1 manually
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libssl1.1
+          wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1-1ubuntu2.1~18.04.20_amd64.deb
+          sudo dpkg -i libssl1.1_1.1.1-1ubuntu2.1~18.04.20_amd64.deb
       - name: checkout octopus
         uses: OctopusDeploy/install-octopus-cli-action@v1.1.8
       - name: pack & push to octo 
