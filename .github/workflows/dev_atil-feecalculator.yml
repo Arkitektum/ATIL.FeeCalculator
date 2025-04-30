@@ -17,19 +17,15 @@ jobs:
         run: dotnet restore .
       - name: Build
         run: dotnet publish ./src/ATIL.FeeCalculator.csproj --configuration Release --no-restore -o publish
-      - name: Install libssl1.1 manually
-        run: |
-          wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1-1ubuntu2.1~18.04.20_amd64.deb
-          sudo dpkg -i libssl1.1_1.1.1-1ubuntu2.1~18.04.20_amd64.deb
       - name: checkout octopus
-        uses: OctopusDeploy/install-octopus-cli-action@v1.1.8
+        uses: OctopusDeploy/install-octopus-cli-action@v3
       - name: pack & push to octo 
         run: |
           BRANCHNAME=${{github.ref_name}}
           MY_VAR="1.0.${{github.run_number}}-beta"
-          octo pack --basePath=infrastructure --id atil_feecalculator-infrastructure --version $MY_VAR --outFolder ./infra --format zip
-          octo push --package "./infra/atil_feecalculator-infrastructure.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
-          octo pack --basePath=publish --id atil_feecalculator --version $MY_VAR --outFolder ./out --format zip
-          octo push --package "./out/atil_feecalculator.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
-          octo create-release --project="ATIL - Fee Calculator API" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}" --channel=Dev
+          octopus pack --basePath=infrastructure --id atil_feecalculator-infrastructure --version $MY_VAR --outFolder ./infra --format zip
+          octopus push --package "./infra/atil_feecalculator-infrastructure.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
+          octopus pack --basePath=publish --id atil_feecalculator --version $MY_VAR --outFolder ./out --format zip
+          octopus push --package "./out/atil_feecalculator.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
+          octopus create-release --project="ATIL - Fee Calculator API" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}" --channel=Dev
 
