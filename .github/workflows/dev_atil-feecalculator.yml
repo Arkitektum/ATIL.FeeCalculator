@@ -23,10 +23,9 @@ jobs:
         run: |
           BRANCHNAME=${{github.ref_name}}
           MY_VAR="1.0.${{github.run_number}}-beta"
-          octopus login --server "${{ secrets.OCTOPUS_SERVER }}" --api-key "${{ secrets.OCTOPUS_APIKEY }}"
           octopus pack --basePath=infrastructure --id atil_feecalculator-infrastructure --version $MY_VAR --outFolder ./infra --format zip
-          octopus push --package "./infra/atil_feecalculator-infrastructure.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
+          octopus push --package "./infra/atil_feecalculator-infrastructure.${MY_VAR}.zip" --server "${{ secrets.OCTOPUS_SERVER }}" --api-key "${{ secrets.OCTOPUS_APIKEY }}"
           octopus pack --basePath=publish --id atil_feecalculator --version $MY_VAR --outFolder ./out --format zip
-          octopus push --package "./out/atil_feecalculator.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
-          octopus create-release --project="ATIL - Fee Calculator API" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}" --channel=Dev
+          octopus push --package "./out/atil_feecalculator.${MY_VAR}.zip" --server "${{ secrets.OCTOPUS_SERVER }}" --api-key "${{ secrets.OCTOPUS_APIKEY }}"
+          octopus create-release --project="ATIL - Fee Calculator API" --server "${{ secrets.OCTOPUS_SERVER }}" --api-key "${{ secrets.OCTOPUS_APIKEY }}" --channel=Dev
 
