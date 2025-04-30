@@ -32,7 +32,7 @@ jobs:
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
           package_id: atil_feecalculator
-          version: 1.0.${{ github.run_number }}-beta
+          version: "1.0.${{ github.run_number }}-beta"
           base_path: publish
           output_folder: ./out
           files: |
@@ -44,8 +44,8 @@ jobs:
           api_key: ${{ secrets.OCTOPUS_APIKEY }}
           space: 'Default'
           packages: |
-            infra/atil_feecalculator-infrastructure.$MY_VAR.zip
-            out/atil_feecalculator.$MY_VAR.zip
+            infra/atil_feecalculator-infrastructure.1.0.${{github.run_number}}-beta.zip
+            out/atil_feecalculator.1.0.${{github.run_number}}-beta.zip
       - name: Create release  
         uses: OctopusDeploy/create-release-action@v3
         with:
