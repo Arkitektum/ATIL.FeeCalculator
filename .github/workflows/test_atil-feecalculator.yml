@@ -25,14 +25,14 @@ jobs:
           base_path: infrastructure
           output_folder: ./infra
           package_id: atil_feecalculator-infrastructure
-          version: "1.0.${{github.run_number}}-test"
+          version: "1.0.${{github.run_number}}-${{github.ref_name}}"
           files: |
             **/*
       - name: Create API zip
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
           package_id: atil_feecalculator
-          version: "1.0.${{ github.run_number }}-test"
+          version: "1.0.${{ github.run_number }}-${{github.ref_name}}"
           base_path: publish
           output_folder: ./out
           files: |
@@ -44,8 +44,8 @@ jobs:
           api_key: ${{ secrets.OCTOPUS_APIKEY }}
           space: 'Default'
           packages: |
-            infra/atil_feecalculator-infrastructure.1.0.${{github.run_number}}-test.zip
-            out/atil_feecalculator.1.0.${{github.run_number}}-test.zip
+            infra/atil_feecalculator-infrastructure.1.0.${{github.run_number}}-${{github.ref_name}}.zip
+            out/atil_feecalculator.1.0.${{github.run_number}}-${{github.ref_name}}.zip
       - name: Create release  
         uses: OctopusDeploy/create-release-action@v3
         with:
@@ -53,5 +53,5 @@ jobs:
           api_key: ${{ secrets.OCTOPUS_APIKEY }}
           space: 'Default'
           project: "ATIL - Fee Calculator API"
-          release_number: "1.0.${{github.run_number}}-test"
+          release_number: "1.0.${{github.run_number}}-${{github.ref_name}}"
           channel: Test
