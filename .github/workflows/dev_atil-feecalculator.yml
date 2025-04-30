@@ -22,7 +22,7 @@ jobs:
       - name: Create zip package  
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
-          base_path: ./src
+          base_path: infrastructure
           output_folder: ./infra
           package_id: atil_feecalculator-infrastructure
           version: "1.0.${{github.run_number}}-beta"
