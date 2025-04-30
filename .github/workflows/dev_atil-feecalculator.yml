@@ -26,6 +26,17 @@ jobs:
           output_folder: ./infra
           package_id: atil_feecalculator-infrastructure
           version: "1.0.${{github.run_number}}-beta"
+          files: |
+            **/*
+      - name: Create API zip
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: atil_feecalculator
+          version: 1.0.${{ github.run_number }}-beta
+          base_path: publish
+          output_folder: ./out
+          files: |
+            **/*
       - name: Push packages  
         uses: OctopusDeploy/push-package-action@v3
         with:
