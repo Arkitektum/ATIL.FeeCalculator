@@ -19,14 +19,17 @@ jobs:
         run: dotnet publish ./src/ATIL.FeeCalculator.csproj --configuration Release --no-restore -o publish
       - name: checkout octopus
         uses: OctopusDeploy/install-octopus-cli-action@v3.1.3
-      - name: pack & push to octo 
-        run: |
-          BRANCHNAME=${{github.ref_name}}
-          MY_VAR="1.0.${{github.run_number}}-beta"
-          octopus login --server "${{ secrets.OCTOPUS_SERVER }}" --api-key "${{ secrets.OCTOPUS_APIKEY }}"
-          octopus pack --basePath=infrastructure --id atil_feecalculator-infrastructure --version $MY_VAR --outFolder ./infra --format zip
-          octopus push --package "./infra/atil_feecalculator-infrastructure.${MY_VAR}.zip" --server "${{ secrets.OCTOPUS_SERVER }}" --api-key "${{ secrets.OCTOPUS_APIKEY }}"
-          octopus pack --basePath=publish --id atil_feecalculator --version $MY_VAR --outFolder ./out --format zip
-          octopus push --package "./out/atil_feecalculator.${MY_VAR}.zip" --server "${{ secrets.OCTOPUS_SERVER }}" --api-key "${{ secrets.OCTOPUS_APIKEY }}"
-          octopus create-release --project="ATIL - Fee Calculator API" --server "${{ secrets.OCTOPUS_SERVER }}" --api-key "${{ secrets.OCTOPUS_APIKEY }}" --channel=Dev
-
+      - name: Push packages  
+        uses: OctopusDeploy/push-package-action@v3
+        with:
+          server: ${{ secrets.OCTOPUS_SERVER }}
+          api_key: ${{ secrets.OCTOPUS_APIKEY }}
+          packages: |
+            infra/atil_feecalculator-infrastructure.$MY_VAR.zip
+            out/atil_feecalculator.$MY_VAR.zip
+      - name: Create release  
+        uses: OctopusDeploy/create-release-action@v3
+        with:
+          project: "ATIL - Fee Calculator API"
+          release_number: "1.0.${{github.run_number}}-beta"
+          channel: Dev
