@@ -1,7 +1,7 @@
 on: 
   push:
     branches:
-      - "develop"
+      - "release/rc-*"
 jobs:
   build:
     runs-on: ubuntu-latest
