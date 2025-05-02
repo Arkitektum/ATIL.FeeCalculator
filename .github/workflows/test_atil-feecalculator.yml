@@ -1,4 +1,4 @@
-on:
+on: 
   push:
     branches:
       - "release/rc-*"
@@ -7,9 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Build
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Compute sanitized version
+        id: compute_version
+        run: |
+          SUFFIX=${GITHUB_REF_NAME#*/}
+          echo VERSION=1.0.${GITHUB_RUN_NUMBER}-${SUFFIX} >> $GITHUB_ENV
       - name: Set up .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
           include-prerelease: true
@@ -18,13 +23,40 @@ jobs:
       - name: Build
         run: dotnet publish ./src/ATIL.FeeCalculator.csproj --configuration Release --no-restore -o publish
       - name: checkout octopus
-        uses: OctopusDeploy/install-octopus-cli-action@v1.1.8
-      - name: pack & push to octo
-        run: |
-          BRANCHNAME=${{github.ref_name}}
-          MY_VAR="1.0.${{github.run_number}}-${BRANCHNAME##*/}"
-          octo pack --basePath=infrastructure --id atil_feecalculator-infrastructure --version $MY_VAR --outFolder ./infra --format zip
-          octo push --package "./infra/atil_feecalculator-infrastructure.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
-          octo pack --basePath=publish --id atil_feecalculator --version $MY_VAR --outFolder ./out --format zip
-          octo push --package "./out/atil_feecalculator.${MY_VAR}.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
-          octo create-release --project="ATIL - Fee Calculator API" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}" --channel=Test
+        uses: OctopusDeploy/install-octopus-cli-action@v3.1.3
+      - name: Create zip package  
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: atil_feecalculator-infrastructure
+          version: ${{ env.VERSION }}
+          base_path: infrastructure
+          output_folder: ./infra
+          files: |
+            **/*
+      - name: Create API zip
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: atil_feecalculator
+          version: ${{ env.VERSION }}
+          base_path: publish
+          output_folder: ./out
+          files: |
+            **/*
+      - name: Push packages  
+        uses: OctopusDeploy/push-package-action@v3
+        with:
+          server: ${{ secrets.OCTOPUS_SERVER }}
+          api_key: ${{ secrets.OCTOPUS_APIKEY }}
+          space: 'Default'
+          packages: |
+            infra/atil_feecalculator-infrastructure.${{ env.VERSION }}.zip
+            out/atil_feecalculator.${{ env.VERSION }}.zip
+      - name: Create release  
+        uses: OctopusDeploy/create-release-action@v3
+        with:
+          server: ${{ secrets.OCTOPUS_SERVER }}
+          api_key: ${{ secrets.OCTOPUS_APIKEY }}
+          space: 'Default'
+          project: "ATIL - Fee Calculator API"
+          release_number: ${{ env.VERSION }}
+          channel: Test
