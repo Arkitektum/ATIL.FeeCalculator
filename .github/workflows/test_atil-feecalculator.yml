@@ -12,7 +12,7 @@ jobs:
         id: compute_version
         run: |
           SUFFIX=${GITHUB_REF_NAME#*/}
-          echo VERSION=1.0.${GITHUB_RUN_NUMBER}-${SUFFIX}" >> $GITHUB_ENV
+          echo VERSION=1.0.${GITHUB_RUN_NUMBER}-${SUFFIX} >> $GITHUB_ENV
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v3
         with:
