@@ -8,11 +8,14 @@ jobs:
     name: Build
     steps:
       - uses: actions/checkout@v3
+      - name: Compute sanitized version
+        id: compute_version
+        run: |
+          echo VERSION=1.0.${GITHUB_RUN_NUMBER}-beta >> $GITHUB_ENV         
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
-          include-prerelease: true
       - name: Install dependencies
         run: dotnet restore .
       - name: Build
@@ -25,14 +28,14 @@ jobs:
           base_path: infrastructure
           output_folder: ./infra
           package_id: atil_feecalculator-infrastructure
-          version: "1.0.${{github.run_number}}-beta"
+          version: ${{ env.VERSION }}
           files: |
             **/*
       - name: Create API zip
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
           package_id: atil_feecalculator
-          version: "1.0.${{ github.run_number }}-beta"
+          version: ${{ env.VERSION }}
           base_path: publish
           output_folder: ./out
           files: |
