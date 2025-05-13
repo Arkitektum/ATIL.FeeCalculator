@@ -47,4 +47,4 @@ jobs:
           space: 'Default'
           project: "ATIL - Fee Calculator API"
           release_number: ${{ env.VERSION }}
-          channel: Production
+          channel: Prod
