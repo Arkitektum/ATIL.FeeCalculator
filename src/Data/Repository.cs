@@ -42,6 +42,7 @@ namespace ATIL.FeeCalculator.Data
         private void PopulateTiltakstyper()
         {
             _tiltakstyper = new List<Tiltakstype>();
+            _tiltakstyper.Add(new Tiltakstype() { TillaterZeroIAreal = true, Kode = "antenneover5m", Navn = "Antennesystem med høyde over 5m", Kategori = "5" });
             _tiltakstyper.Add(new Tiltakstype() { TillaterZeroIAreal = true, Kode = "berekonstruksjoner", Navn = "Endring av bygg - innvendig - Bærekonstruksjoner i bygg", Kategori = "5" });
             _tiltakstyper.Add(new Tiltakstype() { TillaterZeroIAreal = true, Kode = "brannskille", Navn = "Endring av bygg - innvendig - Brannskille i bygg", Kategori = "5" });
             _tiltakstyper.Add(new Tiltakstype() { TillaterZeroIAreal = false, Kode = "bruksendring", Navn = "Bruksendring", Kategori = "1, 2, 3" });
@@ -235,7 +236,7 @@ namespace ATIL.FeeCalculator.Data
             Category category_5;
 
             List<string> tiltakstyper_kat_1_3 = new List<string>() { "hovedombygging", "nyttbyggover70m2", "nyttbyggunder70m2", "nyttbyggdriftsbygningover1000m2", "nyttbyggdriftsbygningunder1000m2", "tilbyggover50m2", "tilbyggunder50m2", "pabygg", "underbygg", "driftsbygningtilbyggover1000m2", "driftsbygningtilbyggunder1000m2", "bruksendring", "endringdrift", "plasseringmidlertidig", "nyttByggBlandetFormalNaringBolig" };
-            List<string> tiltakstyper_kat_5 = new List<string>() { "brannskille", "lydskille", "fundamenter", "berekonstruksjoner", "vatrom", "driftsbygningendringover1000m2", "driftsbygningendringunder1000m2", "fasade", "endringbyggannet", "installasjonernyttanlegg", "utvendigeinstallasjoner", "installasjonibygg", "installasjonerreparasjon" };
+            List<string> tiltakstyper_kat_5 = new List<string>() { "antenneover5m", "brannskille", "lydskille", "fundamenter", "berekonstruksjoner", "vatrom", "driftsbygningendringover1000m2", "driftsbygningendringunder1000m2", "fasade", "endringbyggannet", "installasjonernyttanlegg", "utvendigeinstallasjoner", "installasjonibygg", "installasjonerreparasjon" };
 
             IEnumerable<string> bygningstype_kat_1 = new List<string>() { "223", "229", "233", "243", "245", "429", "431", "439", "523", "524", "529", "611", "654", "659", "825", "829", "830", "840" };
             IEnumerable<string> bygningstype_kat_2 = new List<string>() { "111", "112", "113", "121", "122", "123", "124", "131", "133", "135", "136", "141", "142", "143", "144", "145", "146", "151", "152", "159", "161", "162", "163", "171", "172", "181", "182", "183", "193", "199", "231", "232", "239", "241", "248", "249", "311", "312", "313", "319", "321", "322", "329", "330", "412", "511", "512", "519", "521", "522", "612", "613", "614", "615", "616", "619", "621", "622", "629", "641", "642", "643", "649", "651", "652", "653", "655", "661", "662", "663", "669", "671", "672", "673", "674", "675", "679", "722", "723", "732", "739", "819", "821" };
