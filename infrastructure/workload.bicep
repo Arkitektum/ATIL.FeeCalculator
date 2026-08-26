@@ -10,14 +10,15 @@ param stackVersion string
 param startCommand string
 
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2021-01-15' existing = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' existing = {
   name: aspName
   scope: resourceGroup(rgSharedResources)
 }
 
-resource AppServiceApp 'Microsoft.Web/sites@2021-01-15' = {
+resource AppServiceApp 'Microsoft.Web/sites@2024-11-01' = {
   name: appName
   location: location
+  kind: 'app,linux'
   identity: {
     type: 'SystemAssigned'
   }
@@ -25,6 +26,7 @@ resource AppServiceApp 'Microsoft.Web/sites@2021-01-15' = {
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
+    publicNetworkAccess: 'Disabled'
     clientAffinityEnabled: false
     virtualNetworkSubnetId: resourceId(rgSharedResources,'Microsoft.Network/virtualNetworks/subnets', vnetName, connectivitySubnet)
     siteConfig: {
@@ -41,19 +43,6 @@ resource AppServiceApp 'Microsoft.Web/sites@2021-01-15' = {
         }
       ]
     }
-  }
-}
-
-resource stagingSlot 'Microsoft.Web/sites/slots@2021-02-01' = {
-  name: 'staging'
-  parent: AppServiceApp
-  location: location
-  kind: 'app'
-  identity: {
-    type: 'SystemAssigned'
-  }
-  properties: {
-    serverFarmId: appServicePlan.id
   }
 }
 
