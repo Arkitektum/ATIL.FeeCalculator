@@ -32,6 +32,7 @@ resource AppServiceApp 'Microsoft.Web/sites@2024-11-01' = {
     siteConfig: {
       linuxFxVersion: stackVersion
       appCommandLine: startCommand
+      healthCheckPath: '/health'
       appSettings: [
         {
           name: 'WEBSITE_WEBDEPLOY_USE_SCM'
