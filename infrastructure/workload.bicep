@@ -10,14 +10,15 @@ param stackVersion string
 param startCommand string
 
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2021-01-15' existing = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' existing = {
   name: aspName
   scope: resourceGroup(rgSharedResources)
 }
 
-resource AppServiceApp 'Microsoft.Web/sites@2021-01-15' = {
+resource AppServiceApp 'Microsoft.Web/sites@2024-11-01' = {
   name: appName
   location: location
+  kind: 'app,linux'
   identity: {
     type: 'SystemAssigned'
   }
@@ -25,11 +26,13 @@ resource AppServiceApp 'Microsoft.Web/sites@2021-01-15' = {
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
+    publicNetworkAccess: 'Disabled'
     clientAffinityEnabled: false
     virtualNetworkSubnetId: resourceId(rgSharedResources,'Microsoft.Network/virtualNetworks/subnets', vnetName, connectivitySubnet)
     siteConfig: {
       linuxFxVersion: stackVersion
       appCommandLine: startCommand
+      healthCheckPath: '/health'
       appSettings: [
         {
           name: 'WEBSITE_WEBDEPLOY_USE_SCM'
@@ -41,19 +44,6 @@ resource AppServiceApp 'Microsoft.Web/sites@2021-01-15' = {
         }
       ]
     }
-  }
-}
-
-resource stagingSlot 'Microsoft.Web/sites/slots@2021-02-01' = {
-  name: 'staging'
-  parent: AppServiceApp
-  location: location
-  kind: 'app'
-  identity: {
-    type: 'SystemAssigned'
-  }
-  properties: {
-    serverFarmId: appServicePlan.id
   }
 }
 
@@ -76,17 +66,21 @@ resource privateEndpoint 'Microsoft.Network/privateEndpoints@2023-05-01' = {
       }
     ]
   }
-}
 
-module addToPrivateDns 'AddToPrivateDns.bicep' = {
-  name: 'addToPrivateDns'
-  params: {
-    privateDnsZoneName: privateDnsZoneName
-    privateEndpointName: privateEndpointName
-    appResourceGroupName: resourceGroup().name
-    appName: appName
+  // Azure maintains the A records for every FQDN this endpoint serves,
+  // and keeps them in sync if the private IP ever changes.
+  resource dnsZoneGroup 'privateDnsZoneGroups' = {
+    name: 'default'
+    properties: {
+      privateDnsZoneConfigs: [
+        {
+          name: replace(privateDnsZoneName, '.', '-')
+          properties: {
+            privateDnsZoneId: resourceId(rgSharedResources, 'Microsoft.Network/privateDnsZones', privateDnsZoneName)
+          }
+        }
+      ]
+    }
   }
-  dependsOn: [privateEndpoint]
-  scope: resourceGroup(rgSharedResources)
 }
 
