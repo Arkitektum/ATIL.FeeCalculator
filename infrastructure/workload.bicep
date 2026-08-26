@@ -66,17 +66,21 @@ resource privateEndpoint 'Microsoft.Network/privateEndpoints@2023-05-01' = {
       }
     ]
   }
-}
 
-module addToPrivateDns 'AddToPrivateDns.bicep' = {
-  name: 'addToPrivateDns'
-  params: {
-    privateDnsZoneName: privateDnsZoneName
-    privateEndpointName: privateEndpointName
-    appResourceGroupName: resourceGroup().name
-    appName: appName
+  // Azure maintains the A records for every FQDN this endpoint serves,
+  // and keeps them in sync if the private IP ever changes.
+  resource dnsZoneGroup 'privateDnsZoneGroups' = {
+    name: 'default'
+    properties: {
+      privateDnsZoneConfigs: [
+        {
+          name: replace(privateDnsZoneName, '.', '-')
+          properties: {
+            privateDnsZoneId: resourceId(rgSharedResources, 'Microsoft.Network/privateDnsZones', privateDnsZoneName)
+          }
+        }
+      ]
+    }
   }
-  dependsOn: [privateEndpoint]
-  scope: resourceGroup(rgSharedResources)
 }
 
